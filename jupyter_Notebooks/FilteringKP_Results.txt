@@ -1,0 +1,52 @@
+Total KWS generated: 234770
+Avg. KWS generated/abstract: 70.58628983764281
+Total KWS trimmed:  12414
+Avg. KWS trimmed: 3.7324113048707157
+Filter Diseases + [
+    'http','www','university','department','antibiotic','antimicrobial','institute','ministry',
+    'city','disease','injury','trauma','syndrome','country','national','regimen','genotyp','pain',
+    'surgery', 'medication','infection','stroke','diabetes','bleeding','comorbid','java','python'
+]
+
+Total KWS generated: 234770
+Avg. KWS generated/abstract: 70.58628983764281
+Total KWS trimmed:  12699
+Avg. KWS trimmed: 3.818099819603127
+Filter Diseases + [
+    'http','www','university','department','antibiotic','antimicrobial','institute','ministry', 'pubmed',
+    '.gov','.org','.com','.edu','.net',
+    'city','disease','injury','trauma','syndrome','country','national','regimen','genotyp','pain',
+    'surgery', 'medication','infection','stroke','diabetes','bleeding','comorbid','java','python',
+    "united states",'united kingdom','india','china','germany','france','ghana','australia','italy','england','japan',
+    'english','spanish','french','british','spain'
+    ]
+
+Total KWS generated: 234200
+Avg. KWS generated/abstract: 72.62015503875969
+Total KWS trimmed:  7056
+Avg. KWS trimmed: 2.187906976744186
+Total KWS - post processing:  227144
+Avg. KWS - post processing: 70.4322480620155
+Filter 1-2 Sentence + Diseases + outlier_kws=[
+    'http','www','university','department','antibiotic','antimicrobial','institute','ministry', 'pubmed',
+    '.gov','.org','.com','.edu','.net',
+    'city','disease','injury','trauma','syndrome','country','national','regimen',
+    'surgery', 'medication','infection','stroke','diabetes','bleeding','comorbid','java','python',
+    "united states",'united kingdom','india','china','germany','france','ghana','australia','italy','england','japan',
+    'english','spanish','french','british','spain'
+    ]
+## Cancer(661), Heart(219), Pain(309), Therapy(588), Brain(58)
+
+Total KWS generated: 234770
+Avg. KWS generated/abstract: 70.58628983764281
+Total KWS trimmed:  12699
+Avg. KWS trimmed: 3.818099819603127
+Total KWS - post processing:  222071
+Avg. KWS - post processing: 66.76819001803969
+Diseases + outlier_kws=[
+    'http','www','university','department','antibiotic','antimicrobial','institute','ministry', 'pubmed',
+    '.gov','.org','.com','.edu','.net',
+    'city','disease','injury','trauma','syndrome','country','national','regimen','swelling',
+    'surgery', 'medication','infection','stroke','diabetes','bleeding','comorbid','java','python',
+    "united states",'united kingdom','india','china','germany','france','ghana','australia','italy','england','japan',
+    'english','spanish','french','british','spain'

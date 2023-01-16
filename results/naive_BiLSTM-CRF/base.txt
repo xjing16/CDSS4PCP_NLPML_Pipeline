@@ -1,0 +1,305 @@
+(pytorch) [rgoli@node0025 MetaMap-src]$ python modules/BiLSTM-CRF.py 
+Word Embedding Type:  word2vec
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+/home/rgoli/.local/lib/python3.8/site-packages/sklearn/base.py:324: UserWarning: Trying to unpickle estimator TfidfTransformer from version 0.20.3 when using version 1.0.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/rgoli/.local/lib/python3.8/site-packages/sklearn/base.py:324: UserWarning: Trying to unpickle estimator TfidfVectorizer from version 0.20.3 when using version 1.0.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+JSON pre-processing is completed for 42-th document!: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 10983.96it/s]
+  0%|                                                                                                                                                                                                 | 0/42 [00:00<?, ?it/s]/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/scispacy/candidate_generation.py:284: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  extended_neighbors[empty_vectors_boolean_flags] = numpy.array(neighbors)[:-1]
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/scispacy/candidate_generation.py:285: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  extended_distances[empty_vectors_boolean_flags] = numpy.array(distances)[:-1]
+GS Data for 42-th document!: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:02<00:00, 14.69it/s]
+Train Keyword Marking:
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1033/1033 [00:18<00:00, 54.47it/s]
+Test Keyword Marking:
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2066/2066 [00:30<00:00, 67.82it/s]
+GS Keyword Marking:
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 161.78it/s]
+Total Sentences in Train Corpus:  12141
+Total Sentences in Test Corpus:  20578
+Creating Word2Vec Embedding!!!
+Vocabulary Size: 21540
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Using pretrained word embeddings
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Epoch: 1/20 Loss: 16.868
+Epoch: 2/20 Loss: 10.103
+Epoch: 3/20 Loss: 8.715
+Epoch: 4/20 Loss: 8.123
+Epoch: 5/20 Loss: 7.710
+Epoch: 6/20 Loss: 7.401
+Epoch: 7/20 Loss: 7.149
+Epoch: 8/20 Loss: 6.943
+Epoch: 9/20 Loss: 6.763
+Epoch: 10/20 Loss: 6.600
+Epoch: 11/20 Loss: 6.457
+Epoch: 12/20 Loss: 6.328
+Epoch: 13/20 Loss: 6.205
+Epoch: 14/20 Loss: 6.094
+Epoch: 15/20 Loss: 5.989
+Epoch: 16/20 Loss: 5.892
+Epoch: 17/20 Loss: 5.803
+Epoch: 18/20 Loss: 5.716
+Epoch: 19/20 Loss: 5.641
+Epoch: 20/20 Loss: 5.572
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Test Loss: 5.782
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEST Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 89165.   8318.   6384.]
+ [  8491.  27297.   1812.]
+ [  7799.   3187. 276743.]]
+--------------------------------------------------
+Label: B-KP
+TP:89165.0 FN:14702.0 FP:16290.0 TN:309039.0
+--------------------------------------------------
+    Accuracy:   0.927791
+    Misclassification:  0.072209
+    Precision:  0.845527
+    Sensitivity/Recall: 0.858454
+    Specificity:        0.949928
+    F1 Score:   0.851941
+--------------------------------------------------
+Label: I-KP
+TP:27297.0 FN:10303.0 FP:11505.0 TN:380091.0
+--------------------------------------------------
+    Accuracy:   0.949189
+    Misclassification:  0.050811
+    Precision:  0.703495
+    Sensitivity/Recall: 0.725984
+    Specificity:        0.970620
+    F1 Score:   0.714562
+--------------------------------------------------
+Label: O
+TP:276743.0 FN:10986.0 FP:8196.0 TN:133271.0
+--------------------------------------------------
+    Accuracy:   0.955307
+    Misclassification:  0.044693
+    Precision:  0.971236
+    Sensitivity/Recall: 0.961818
+    Specificity:        0.942064
+    F1 Score:   0.966504
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.94410
+Avg. Precision: 0.840086
+Avg. F1-Score: 0.844336
+Avg. Sensitivity: 0.848752
+Avg. Specificity: 0.954204
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+Classification - Strict Schema
+              precision    recall  f1-score   support
+
+          KP       0.71      0.72      0.71    103867
+
+   micro avg       0.71      0.72      0.71    103867
+   macro avg       0.71      0.72      0.71    103867
+weighted avg       0.71      0.72      0.71    103867
+
+Classification - Non Strict Schema
+              precision    recall  f1-score   support
+
+          KP       0.71      0.72      0.71    103867
+
+   micro avg       0.71      0.72      0.71    103867
+   macro avg       0.71      0.72      0.71    103867
+weighted avg       0.71      0.72      0.71    103867
+
+Precision given by SeqEval: 70.52%
+Recall given by SeqEval: 71.60%
+F1-Score given by SeqEval: 71.05%
+Accuracy given by SeqEval: 91.61%
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GS Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 741.   85.  265.]
+ [ 115.  372.   29.]
+ [1442.  482. 5455.]]
+--------------------------------------------------
+Label: B-KP
+TP:741.0 FN:350.0 FP:1557.0 TN:6338.0
+--------------------------------------------------
+    Accuracy:   0.787781
+    Misclassification:  0.212219
+    Precision:  0.322454
+    Sensitivity/Recall: 0.679193
+    Specificity:        0.802787
+    F1 Score:   0.437297
+--------------------------------------------------
+Label: I-KP
+TP:372.0 FN:144.0 FP:567.0 TN:7903.0
+--------------------------------------------------
+    Accuracy:   0.920877
+    Misclassification:  0.079123
+    Precision:  0.396166
+    Sensitivity/Recall: 0.720930
+    Specificity:        0.933058
+    F1 Score:   0.511340
+--------------------------------------------------
+Label: O
+TP:5455.0 FN:1924.0 FP:294.0 TN:1313.0
+--------------------------------------------------
+    Accuracy:   0.753172
+    Misclassification:  0.246828
+    Precision:  0.948861
+    Sensitivity/Recall: 0.739260
+    Specificity:        0.817050
+    F1 Score:   0.831048
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.82061
+Avg. Precision: 0.555827
+Avg. F1-Score: 0.593228
+Avg. Sensitivity: 0.713128
+Avg. Specificity: 0.850965
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.25      0.52      0.33      1091
+
+   micro avg       0.25      0.52      0.33      1091
+   macro avg       0.25      0.52      0.33      1091
+weighted avg       0.25      0.52      0.33      1091
+
+Precision given by SeqEval: 24.62%
+Recall given by SeqEval: 52.15%
+F1-Score given by SeqEval: 33.45%
+Accuracy given by SeqEval: 73.09%
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GS Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 725.   95.  267.]
+ [ 108.  375.   32.]
+ [1411.  506. 5452.]]
+--------------------------------------------------
+Label: B-KP
+TP:725.0 FN:362.0 FP:1519.0 TN:6365.0
+--------------------------------------------------
+    Accuracy:   0.790324
+    Misclassification:  0.209676
+    Precision:  0.323084
+    Sensitivity/Recall: 0.666973
+    Specificity:        0.807331
+    F1 Score:   0.435305
+--------------------------------------------------
+Label: I-KP
+TP:375.0 FN:140.0 FP:601.0 TN:7855.0
+--------------------------------------------------
+    Accuracy:   0.917401
+    Misclassification:  0.082599
+    Precision:  0.384221
+    Sensitivity/Recall: 0.728155
+    Specificity:        0.928926
+    F1 Score:   0.503018
+--------------------------------------------------
+Label: O
+TP:5452.0 FN:1917.0 FP:299.0 TN:1303.0
+--------------------------------------------------
+    Accuracy:   0.752982
+    Misclassification:  0.247018
+    Precision:  0.948009
+    Sensitivity/Recall: 0.739856
+    Specificity:        0.813358
+    F1 Score:   0.831098
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.82024
+Avg. Precision: 0.551771
+Avg. F1-Score: 0.589807
+Avg. Sensitivity: 0.711662
+Avg. Specificity: 0.849872
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/seqeval/metrics/sequence_labeling.py:171: UserWarning: <START> seems not to be NE tag.
+  warnings.warn('{} seems not to be NE tag.'.format(chunk))
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/seqeval/metrics/v1.py:57: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+          KP       0.25      0.51      0.33      1091
+      START>       0.00      0.00      0.00         0
+
+   micro avg       0.24      0.51      0.33      1091
+   macro avg       0.12      0.25      0.17      1091
+weighted avg       0.25      0.51      0.33      1091
+
+Precision given by SeqEval: 24.41%
+Recall given by SeqEval: 50.78%
+F1-Score given by SeqEval: 32.97%
+Accuracy given by SeqEval: 72.91%
+['UNKNOWN', 'support', 'architecture', 'for', 'developing', 'point-of-care', 'clinical', 'decision', 'support', 'systems', 'for', 'the', 'emergency', 'department']
+['<START>', 'O', 'B-KP', 'O', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'O', 'I-KP', 'O']
+['B-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'O', 'O', 'O']
+--------------------
+['UNKNOWN', 'UNKNOWN', 'and', 'sdm', 'standards', 'are', 'extended', 'using', 'an', 'archetype', 'approach', 'to', 'enable', 'two-level', 'model', 'of', 'individual', 'data', 'elements', 'representing', 'both', 'research', 'content', 'and', 'clinical', 'content']
+['<START>', '<START>', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'O', 'O', 'B-KP', 'B-KP', 'B-KP', 'O', 'O']
+['B-KP', 'I-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['UNKNOWN', 'UNKNOWN', 'and', 'sdm', 'standards', 'are', 'extended', 'using', 'an', 'archetype', 'approach', 'to', 'enable', 'two-level', 'model', 'of', 'individual', 'data', 'elements', 'representing', 'both', 'research', 'content', 'and', 'clinical', 'content']
+['<START>', '<START>', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'O', 'O', 'B-KP', 'B-KP', 'B-KP', 'O', 'O']
+['B-KP', 'I-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['UNKNOWN', 'an', 'architecture', 'for', 'the', 'acquisition', 'and', 'execution', 'of', 'clinical', 'UNKNOWN', 'tasks']
+['<START>', 'O', 'B-KP', 'O', 'O', 'B-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'O', 'O']
+['O', 'O', 'B-KP', 'O', 'O', 'B-KP', 'O', 'B-KP', 'O', 'O', 'O', 'B-KP']
+--------------------
+['the', 'guided', 'mode', 'directs', 'the', 'physician', 'to', 'the', 'best', 'treatment', 'by', 'browsing', 'comprehensive', 'guideline', 'knowledge', 'base', 'represented', 'as', 'decision', 'tree']
+['<START>', 'B-KP', 'O', 'B-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['translational', 'medicine', 'and', 'patient', 'safety', 'in', 'europe', 'transform', 'architecture', 'for', 'the', 'learning', 'health', 'system', 'in', 'europe']
+['<START>', 'B-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'I-KP', 'I-KP']
+['O', 'B-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP']
+--------------------
+['the', 'guided', 'mode', 'directs', 'the', 'physician', 'to', 'the', 'best', 'treatment', 'by', 'browsing', 'comprehensive', 'guideline', 'knowledge', 'base', 'represented', 'as', 'decision', 'tree']
+['<START>', 'O', 'O', 'O', 'B-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'B-KP', 'I-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'O', 'O', 'B-KP']
+['O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'I-KP']
+--------------------
+['construction', 'of', 'clinical', 'decision', 'support', 'system', 'for', 'undergoing', 'surgery', 'based', 'on', 'domain', 'ontology', 'and', 'rules', 'reasoning']
+['<START>', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['despite', 'these', 'efforts', 'only', 'few', 'systems', 'progressed', 'beyond', 'the', 'prototype', 'stage', 'and', 'the', 'research', 'laboratory']
+['<START>', 'B-KP', 'O', 'O', 'O', 'O', 'B-KP', 'B-KP', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O']
+['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'B-KP', 'O', 'O', 'O']
+--------------------
+['UNKNOWN', 'an', 'architecture', 'for', 'the', 'acquisition', 'and', 'execution', 'of', 'clinical', 'UNKNOWN', 'tasks']
+['<START>', 'B-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'B-KP', 'B-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['for', 'guideline-based', 'clinical', 'decision', 'support', 'systems', 'to', 'be', 'successful', 'balance', 'must', 'be', 'made', 'between', 'intuitive', 'but', 'imprecise', 'representations', 'usually', 'encountered', 'by', 'most', 'of', 'today', "'s", 'systems', 'and', 'representations', 'that', 'support', 'strong', 'underlying', 'clinical', 'performance', 'model']
+['<START>', 'B-KP', 'O', 'O', 'B-KP', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['construction', 'of', 'clinical', 'decision', 'support', 'system', 'for', 'undergoing', 'surgery', 'based', 'on', 'domain', 'ontology', 'and', 'rules', 'reasoning']
+['<START>', 'B-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'B-KP', 'I-KP', 'O', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['the', 'evaluation', 'studies', 'confirmed', 'the', 'correctness', 'of', 'the', 'ontology', 'acceptance', 'of', 'recommendations', 'satisfaction', 'with', 'the', 'system', 'and', 'usefulness', 'of', 'the', 'ontology', 'for', 'glycemic', 'management', 'of', 'diabetic', 'patients', 'undergoing', 'surgery', 'especially', 'for', 'domain', 'experts']
+['<START>', 'B-KP', 'B-KP', 'O', 'O', 'B-KP', 'I-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'B-KP', 'I-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['results', 'four', 'models', 'were', 'developed', 'clinical', 'research', 'clinical', 'data', 'provenance', 'and', 'diagnosis', 'that', 'form', 'the', 'basis', 'of', 'the', 'projects', 'approach', 'to', 'interoperability']
+['<START>', 'O', 'B-KP', 'O', 'O', 'B-KP', 'B-KP', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'B-KP', 'I-KP', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O']
+--------------------
+['recently', 'studies', 'have', 'shown', 'the', 'benefits', 'of', 'using', 'clinical', 'guidelines', 'in', 'the', 'practice', 'of', 'medicine']
+['<START>', 'O', 'O', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'O', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'O']
+['B-KP', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'I-KP', 'O']
+--------------------

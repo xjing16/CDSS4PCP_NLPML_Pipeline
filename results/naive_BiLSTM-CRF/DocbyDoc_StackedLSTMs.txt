@@ -1,0 +1,138 @@
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Using pretrained word embeddings
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Epoch: 1/20 Loss: 12.990
+Epoch: 2/20 Loss: 7.806
+Epoch: 3/20 Loss: 6.990
+Epoch: 4/20 Loss: 6.492
+Epoch: 5/20 Loss: 6.148
+Epoch: 6/20 Loss: 5.868
+Epoch: 7/20 Loss: 5.648
+Epoch: 8/20 Loss: 5.467
+Epoch: 9/20 Loss: 5.302
+Epoch: 10/20 Loss: 5.149
+Epoch: 11/20 Loss: 5.037
+Epoch: 12/20 Loss: 4.928
+Epoch: 13/20 Loss: 4.843
+Epoch: 14/20 Loss: 4.769
+Epoch: 15/20 Loss: 4.701
+Epoch: 16/20 Loss: 4.666
+Epoch: 17/20 Loss: 4.607
+Epoch: 18/20 Loss: 4.570
+Epoch: 19/20 Loss: 4.532
+Epoch: 20/20 Loss: 4.518
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Test Loss: 5.683
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEST Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 90848.  10760.   6214.]
+ [  6600.  31774.   1553.]
+ [  7104.   3789. 288655.]]
+--------------------------------------------------
+Label: B-KP
+TP:90848.0 FN:16974.0 FP:13704.0 TN:325771.0
+--------------------------------------------------
+    Accuracy:	0.931415
+    Misclassification:	0.068585
+    Precision:	0.868926
+    Sensitivity/Recall:	0.842574
+    Specificity:	0.959632
+    F1 Score:	0.855547
+--------------------------------------------------
+Label: I-KP
+TP:31774.0 FN:8153.0 FP:14549.0 TN:392821.0
+--------------------------------------------------
+    Accuracy:	0.949246
+    Misclassification:	0.050754
+    Precision:	0.685923
+    Sensitivity/Recall:	0.795802
+    Specificity:	0.964286
+    F1 Score:	0.736788
+--------------------------------------------------
+Label: O
+TP:288655.0 FN:10893.0 FP:7767.0 TN:139982.0
+--------------------------------------------------
+    Accuracy:	0.958283
+    Misclassification:	0.041717
+    Precision:	0.973797
+    Sensitivity/Recall:	0.963635
+    Specificity:	0.947431
+    F1 Score:	0.968690
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.94631
+Avg. Precision: 0.842882
+Avg. F1-Score: 0.853675
+Avg. Sensitivity: 0.867337
+Avg. Specificity: 0.957116
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.72      0.70      0.71    107822
+
+   micro avg       0.72      0.70      0.71    107822
+   macro avg       0.72      0.70      0.71    107822
+weighted avg       0.72      0.70      0.71    107822
+
+Precision given by SeqEval: 72.47%
+Recall given by SeqEval: 70.27%
+F1-Score given by SeqEval: 71.35%
+Accuracy given by SeqEval: 91.95%
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GS Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 680.   81.  268.]
+ [  99.  347.   28.]
+ [1342.  525. 4927.]]
+--------------------------------------------------
+Label: B-KP
+TP:680.0 FN:349.0 FP:1441.0 TN:5827.0
+--------------------------------------------------
+    Accuracy:	0.784259
+    Misclassification:	0.215741
+    Precision:	0.320603
+    Sensitivity/Recall:	0.660836
+    Specificity:	0.801734
+    F1 Score:	0.431746
+--------------------------------------------------
+Label: I-KP
+TP:347.0 FN:127.0 FP:606.0 TN:7217.0
+--------------------------------------------------
+    Accuracy:	0.911655
+    Misclassification:	0.088345
+    Precision:	0.364113
+    Sensitivity/Recall:	0.732068
+    Specificity:	0.922536
+    F1 Score:	0.486335
+--------------------------------------------------
+Label: O
+TP:4927.0 FN:1867.0 FP:296.0 TN:1207.0
+--------------------------------------------------
+    Accuracy:	0.739303
+    Misclassification:	0.260697
+    Precision:	0.943328
+    Sensitivity/Recall:	0.725199
+    Specificity:	0.803061
+    F1 Score:	0.820005
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.81174
+Avg. Precision: 0.542681
+Avg. F1-Score: 0.579362
+Avg. Sensitivity: 0.706034
+Avg. Specificity: 0.842443
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.24      0.50      0.33      1029
+
+   micro avg       0.24      0.50      0.33      1029
+   macro avg       0.24      0.50      0.33      1029
+weighted avg       0.24      0.50      0.33      1029
+
+Precision given by SeqEval: 24.45%
+Recall given by SeqEval: 50.44%
+F1-Score given by SeqEval: 32.93%
+Accuracy given by SeqEval: 71.76%
+(pytorch) [rgoli@node1399 MetaMap-src]$

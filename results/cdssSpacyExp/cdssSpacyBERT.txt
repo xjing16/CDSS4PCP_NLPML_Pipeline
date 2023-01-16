@@ -1,0 +1,68 @@
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$ python -m spacy init fill-config keywordExtraction/spacy_base.cfg keywordExtraction/config.cfg                                   /home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+✔ Auto-filled config with all values
+✔ Saved config
+keywordExtraction/config.cfg
+You can now add your data and train your pipeline:
+python -m spacy train config.cfg --paths.train ./train.spacy --paths.dev ./dev.spacy
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$ python -m spacy train -g 0 keywordExtraction/config.cfg --output ./cdssSpacyBERToutput --paths.train ./data/finetuneBERT.spacy --paths.dev ./data/finetuneBERT.spacy
+ℹ Saving to output directory: cdssSpacyBERToutput
+ℹ Using GPU: 0
+
+=========================== Initializing pipeline ===========================
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+[2022-08-30 17:40:08,363] [INFO] Set up nlp object from config
+[2022-08-30 17:40:08,372] [INFO] Pipeline: ['transformer', 'ner']
+[2022-08-30 17:40:08,372] [INFO] Resuming training for: ['ner']
+[2022-08-30 17:40:08,380] [INFO] Copying tokenizer from: en_core_sci_lg
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+[2022-08-30 17:40:14,706] [INFO] Copying vocab from: en_core_sci_lg
+[2022-08-30 17:40:30,485] [INFO] Created vocabulary
+[2022-08-30 17:40:31,888] [INFO] Finished initializing nlp object
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[2022-08-30 17:40:34,528] [INFO] Initialized pipeline components: ['transformer']
+✔ Initialized pipeline
+
+============================= Training pipeline =============================
+ℹ Pipeline: ['transformer', 'ner']
+ℹ Initial learn rate: 0.0
+E    #       LOSS TRANS...  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  -------------  --------  ------  ------  ------  ------
+  0       0           0.00    404.13    0.00    0.00    0.00    0.00
+ 33     200           0.00  120509.43    0.00    0.00    0.00    0.00
+ 66     400           0.00  66020.02   48.03   71.12   36.26    0.48
+100     600           0.00  42153.49   71.51   74.43   68.82    0.72
+133     800           0.00  29529.46   82.61   83.43   81.80    0.83
+166    1000           0.00  21796.20   89.25   88.52   89.99    0.89
+200    1200           0.00  16219.05   93.36   92.89   93.84    0.93
+233    1400           0.00  12169.38   95.92   95.41   96.45    0.96
+266    1600           0.00   9323.06   98.12   98.04   98.19    0.98
+300    1800           0.00   7062.56   98.70   98.62   98.77    0.99
+333    2000           0.00   5549.45   99.06   99.06   99.06    0.99
+366    2200           0.00   4321.67   99.31   99.28   99.35    0.99
+400    2400           0.00   3447.52   99.49   99.49   99.49    0.99
+433    2600           0.00   2838.84   99.53   99.56   99.49    1.00
+466    2800           0.00   2398.89   99.60   99.57   99.64    1.00
+500    3000           0.00   1836.11   99.75   99.71   99.78    1.00
+533    3200           0.00   1631.59   99.67   99.64   99.71    1.00
+566    3400           0.00   1425.42   99.96   99.93  100.00    1.00
+600    3600           0.00   1217.18   99.96   99.93  100.00    1.00
+633    3800           0.00   1000.96   99.96   99.93  100.00    1.00
+666    4000           0.00    913.34   99.96   99.93  100.00    1.00
+700    4200           0.00    857.30   99.96   99.93  100.00    1.00
+733    4400           0.00    716.04  100.00  100.00  100.00    1.00
+766    4600           0.00    695.08  100.00  100.00  100.00    1.00
+800    4800           0.00    572.44  100.00  100.00  100.00    1.00
+833    5000           0.00    545.66  100.00  100.00  100.00    1.00
+866    5200           0.00    498.25  100.00  100.00  100.00    1.00
+900    5400           0.00    487.42  100.00  100.00  100.00    1.00
+933    5600           0.00    406.54  100.00  100.00  100.00    1.00
+966    5800           0.00    377.35  100.00  100.00  100.00    1.00
+1000    6000           0.00    367.40  100.00  100.00  100.00    1.00
+✔ Saved pipeline to output directory
+cdssSpacyBERToutput/model-last
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$

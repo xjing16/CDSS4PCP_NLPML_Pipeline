@@ -1,0 +1,288 @@
+(pytorch) [rgoli@node1438 MetaMap-src]$ python modules/BiLSTM-CRF.py
+Word Embedding Type:  word2vec
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+/home/rgoli/.local/lib/python3.8/site-packages/sklearn/base.py:324: UserWarning: Trying to unpickle estimator TfidfTransformer from version 0.20.3 when using version 1.0.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/rgoli/.local/lib/python3.8/site-packages/sklearn/base.py:324: UserWarning: Trying to unpickle estimator TfidfVectorizer from version 0.20.3 when using version 1.0.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+JSON pre-processing is completed for 42-th document!: 100%|████| 42/42 [00:00<00:00, 14627.65it/s]
+  0%|                                                                      | 0/42 [00:00<?, ?it/s]/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/scispacy/candidate_generation.py:284: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  extended_neighbors[empty_vectors_boolean_flags] = numpy.array(neighbors)[:-1]
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/scispacy/candidate_generation.py:285: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  extended_distances[empty_vectors_boolean_flags] = numpy.array(distances)[:-1]
+GS Data for 42-th document!: 100%|████████████████████████████████| 42/42 [00:03<00:00, 13.95it/s]
+Train Keyword Marking:
+100%|█████████████████████████████████████████████████████████| 1033/1033 [00:20<00:00, 50.39it/s]
+Test Keyword Marking:
+100%|█████████████████████████████████████████████████████████| 2066/2066 [00:32<00:00, 62.85it/s]
+GS Keyword Marking:
+100%|████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 146.26it/s]
+Total Sentences in Train Corpus:  12141
+Total Sentences in Test Corpus:  20578
+Creating Word2Vec Embedding!!!
+Vocabulary Size: 21540
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Using pretrained word embeddings
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Epoch: 1/20 Loss: 10.538
+Epoch: 2/20 Loss: 7.240
+Epoch: 3/20 Loss: 6.550
+Epoch: 4/20 Loss: 6.121
+Epoch: 5/20 Loss: 5.819
+Epoch: 6/20 Loss: 5.599
+Epoch: 7/20 Loss: 5.425
+Epoch: 8/20 Loss: 5.270
+Epoch: 9/20 Loss: 5.148
+Epoch: 10/20 Loss: 5.006
+Epoch: 11/20 Loss: 4.895
+Epoch: 12/20 Loss: 4.820
+Epoch: 13/20 Loss: 4.735
+Epoch: 14/20 Loss: 4.675
+Epoch: 15/20 Loss: 4.631
+Epoch: 16/20 Loss: 4.600
+Epoch: 17/20 Loss: 4.551
+Epoch: 18/20 Loss: 4.599
+Epoch: 19/20 Loss: 4.527
+Epoch: 20/20 Loss: 4.492
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Test Loss: 5.701
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEST Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 91898.   9977.   5947.]
+ [  6952.  31427.   1548.]
+ [  7336.   3633. 288579.]]
+--------------------------------------------------
+Label: B-KP
+TP:91898.0 FN:15924.0 FP:14288.0 TN:325187.0
+--------------------------------------------------
+    Accuracy:   0.932457
+    Misclassification:  0.067543
+    Precision:  0.865444
+    Sensitivity/Recall: 0.852312
+    Specificity:        0.957911
+    F1 Score:   0.858828
+--------------------------------------------------
+Label: I-KP
+TP:31427.0 FN:8500.0 FP:13610.0 TN:393760.0
+--------------------------------------------------
+    Accuracy:   0.950570
+    Misclassification:  0.049430
+    Precision:  0.697804
+    Sensitivity/Recall: 0.787111
+    Specificity:        0.966591
+    F1 Score:   0.739772
+--------------------------------------------------
+Label: O
+TP:288579.0 FN:10969.0 FP:7495.0 TN:140254.0
+--------------------------------------------------
+    Accuracy:   0.958721
+    Misclassification:  0.041279
+    Precision:  0.974685
+    Sensitivity/Recall: 0.963381
+    Specificity:        0.949272
+    F1 Score:   0.969000
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.94725
+Avg. Precision: 0.845978
+Avg. F1-Score: 0.855867
+Avg. Sensitivity: 0.867602
+Avg. Specificity: 0.957925
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.73      0.71      0.72    107822
+
+   micro avg       0.73      0.71      0.72    107822
+   macro avg       0.73      0.71      0.72    107822
+weighted avg       0.73      0.71      0.72    107822
+
+Precision given by SeqEval: 72.53%
+Recall given by SeqEval: 71.43%
+F1-Score given by SeqEval: 71.98%
+Accuracy given by SeqEval: 92.09%
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GS Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 702.   73.  250.]
+ [ 105.  343.   25.]
+ [1371.  506. 4907.]]
+--------------------------------------------------
+Label: B-KP
+TP:702.0 FN:323.0 FP:1476.0 TN:5781.0
+--------------------------------------------------
+    Accuracy:   0.782782
+    Misclassification:  0.217218
+    Precision:  0.322314
+    Sensitivity/Recall: 0.684878
+    Specificity:        0.796610
+    F1 Score:   0.438339
+--------------------------------------------------
+Label: I-KP
+TP:343.0 FN:130.0 FP:579.0 TN:7230.0
+--------------------------------------------------
+    Accuracy:   0.914393
+    Misclassification:  0.085607
+    Precision:  0.372017
+    Sensitivity/Recall: 0.725159
+    Specificity:        0.925855
+    F1 Score:   0.491756
+--------------------------------------------------
+Label: O
+TP:4907.0 FN:1877.0 FP:275.0 TN:1223.0
+--------------------------------------------------
+    Accuracy:   0.740159
+    Misclassification:  0.259841
+    Precision:  0.946932
+    Sensitivity/Recall: 0.723320
+    Specificity:        0.816422
+    F1 Score:   0.820157
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.81244
+Avg. Precision: 0.547088
+Avg. F1-Score: 0.583417
+Avg. Sensitivity: 0.711119
+Avg. Specificity: 0.846296
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/seqeval/metrics/sequence_labeling.py:171: UserWarning: <START> seems not to be NE tag.
+  warnings.warn('{} seems not to be NE tag.'.format(chunk))
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/seqeval/metrics/v1.py:57: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+              precision    recall  f1-score   support
+
+          KP       0.24      0.52      0.33      1029
+      START>       0.00      0.00      0.00         0
+
+   micro avg       0.24      0.52      0.33      1029
+   macro avg       0.12      0.26      0.17      1029
+weighted avg       0.24      0.52      0.33      1029
+
+Precision given by SeqEval: 24.24%
+Recall given by SeqEval: 51.70%
+F1-Score given by SeqEval: 33.00%
+Accuracy given by SeqEval: 71.74%
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'O', 'B-KP', 'O', 'O', 'B-KP', 'B-KP']
+['B-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'O', 'B-KP']
+--------------------
+['first', 'prototype', 'applied', 'to', 'hypertension', 'is', 'currently', 'under', 'development']
+['<START>', '<START>', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O']
+['B-KP', 'I-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['first', 'prototype', 'applied', 'to', 'hypertension', 'is', 'currently', 'under', 'development']
+['<START>', '<START>', 'O', 'B-KP', 'I-KP', 'O', 'O', 'O', 'O']
+['B-KP', 'I-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'O', 'B-KP', 'O', 'O', 'B-KP', 'O']
+['O', 'O', 'B-KP', 'O', 'O', 'B-KP', 'O']
+--------------------
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'B-KP', 'O', 'B-KP', 'I-KP', 'O', 'B-KP']
+['O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'B-KP']
+--------------------
+['the', 'critic', 'mode', 'operates', 'as', 'background', 'process', 'and', 'corrects', 'the', 'physician', "'s", 'prescription', 'on', 'the', 'basis', 'of', 'automatically', 'triggered', 'elementary', 'rules', 'that', 'account', 'for', 'isolated', 'guideline', 'recommendations']
+['<START>', 'B-KP', 'B-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'O', 'B-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'O', 'O', 'O']
+['O', 'B-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'O']
+--------------------
+['development', 'of', 'service-oriented', 'sharable', 'clinical', 'decision', 'support', 'system', 'based', 'on', 'ontology', 'for', 'chronic', 'disease']
+['<START>', 'O', 'O', 'O', 'B-KP', 'O', 'B-KP', 'B-KP', 'I-KP', 'I-KP', 'I-KP', 'B-KP', 'B-KP', 'I-KP']
+['O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O']
+--------------------
+['however', 'the', 'UNKNOWN', 'in', 'integrating', 'multiple', 'clinical', 'practice', 'guidelines', 'UNKNOWN', 'the', 'mass', 'input', 'workload', 'of', 'patient', 'data', 'and', 'the', 'difficulty', 'in', 'system', 'sharing', 'become', 'barriers', 'of', 'cdsss', 'implementation']
+['<START>', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'I-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['construction', 'of', 'clinical', 'decision', 'support', 'system', 'for', 'undergoing', 'surgery', 'based', 'on', 'domain', 'ontology', 'and', 'rules', 'reasoning']
+['<START>', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'B-KP', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O']
+['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O']
+--------------------
+['construction', 'of', 'clinical', 'decision', 'support', 'system', 'for', 'undergoing', 'surgery', 'based', 'on', 'domain', 'ontology', 'and', 'rules', 'reasoning']
+['<START>', 'B-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+['O', 'B-KP', 'B-KP', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'B-KP', 'O', 'O', 'B-KP', 'O', 'B-KP']
+['B-KP', 'I-KP', 'O', 'O', 'O', 'O', 'O']
+--------------------
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'B-KP', 'I-KP', 'I-KP', 'O', 'B-KP', 'I-KP']
+['O', 'B-KP', 'I-KP', 'O', 'O', 'B-KP', 'B-KP']
+--------------------
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'B-KP', 'B-KP', 'O', 'O', 'B-KP', 'I-KP']
+['O', 'B-KP', 'I-KP', 'O', 'B-KP', 'B-KP', 'I-KP']
+--------------------
+['the', 'guided', 'mode', 'directs', 'the', 'physician', 'to', 'the', 'best', 'treatment', 'by', 'browsing', 'comprehensive', 'guideline', 'knowledge', 'base', 'represented', 'as', 'decision', 'tree']
+['<START>', 'O', 'B-KP', 'O', 'O', 'B-KP', 'B-KP', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O', 'O', 'O', 'O']
+['O', 'B-KP', 'I-KP', 'B-KP', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-KP', 'O', 'O']
+--------------------
+['asti', 'guideline-based', 'UNKNOWN', 'system', 'for', 'primary', 'care']
+['<START>', 'O', 'O', 'O', 'B-KP', 'I-KP', 'I-KP']
+['B-KP', 'O', 'O', 'B-KP', 'O', 'O', 'O']
+--------------------
+(pytorch) [rgoli@node1438 MetaMap-src]$
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GS Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 703.   72.  254.]
+ [ 104.  343.   27.]
+ [1369.  511. 4914.]]
+--------------------------------------------------
+Label: B-KP
+TP:703.0 FN:326.0 FP:1473.0 TN:5795.0
+--------------------------------------------------
+    Accuracy:   0.783175
+    Misclassification:  0.216825
+    Precision:  0.323070
+    Sensitivity/Recall: 0.683188
+    Specificity:        0.797331
+    F1 Score:   0.438690
+--------------------------------------------------
+Label: I-KP
+TP:343.0 FN:131.0 FP:583.0 TN:7240.0
+--------------------------------------------------
+    Accuracy:   0.913945
+    Misclassification:  0.086055
+    Precision:  0.370410
+    Sensitivity/Recall: 0.723629
+    Specificity:        0.925476
+    F1 Score:   0.490000
+--------------------------------------------------
+Label: O
+TP:4914.0 FN:1880.0 FP:281.0 TN:1222.0
+--------------------------------------------------
+    Accuracy:   0.739544
+    Misclassification:  0.260456
+    Precision:  0.945910
+    Sensitivity/Recall: 0.723285
+    Specificity:        0.813041
+    F1 Score:   0.819751
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.81222
+Avg. Precision: 0.546463
+Avg. F1-Score: 0.582814
+Avg. Sensitivity: 0.710034
+Avg. Specificity: 0.845283
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.25      0.52      0.33      1029
+
+   micro avg       0.25      0.52      0.33      1029
+   macro avg       0.25      0.52      0.33      1029
+weighted avg       0.25      0.52      0.33      1029
+
+Precision given by SeqEval: 24.54%
+Recall given by SeqEval: 51.99%
+F1-Score given by SeqEval: 33.34%
+Accuracy given by SeqEval: 71.83%

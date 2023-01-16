@@ -1,0 +1,18 @@
+python: can't open file 'mainV2.py': [Errno 2] No such file or directory
+DONE
+ 
+ 
++------------------------------------------+ 
+| PALMETTO CLUSTER PBS RESOURCES REQUESTED | 
++------------------------------------------+ 
+ 
+mem=62gb,walltime=17:00:00,ncpus=24
+ 
+ 
++-------------------------------------+ 
+| PALMETTO CLUSTER PBS RESOURCES USED | 
++-------------------------------------+ 
+ 
+cput=00:00:01,mem=25808kb,walltime=00:00:01,ncpus=24,cpupercent=0,vmem=0kb
+ 
+ 

@@ -1,0 +1,78 @@
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$ python -m spacy train -g 0 keywordExtraction/config.cfg --output ./cdssBER42GS --paths.train ./data/finetuneBERT.spacy --paths.dev ./data/testBERT.spacy 
+ℹ Saving to output directory: cdssBER42GS
+ℹ Using GPU: 0
+
+=========================== Initializing pipeline ===========================
+[2022-08-23 19:08:36,894] [INFO] Set up nlp object from config
+[2022-08-23 19:08:36,902] [INFO] Pipeline: ['transformer', 'ner']
+[2022-08-23 19:08:36,905] [INFO] Created vocabulary
+[2022-08-23 19:08:36,906] [INFO] Finished initializing nlp object
+Some weights of the model checkpoint at allenai/scibert_scivocab_cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[2022-08-23 19:08:39,643] [INFO] Initialized pipeline components: ['transformer', 'ner']
+✔ Initialized pipeline
+
+============================= Training pipeline =============================
+ℹ Pipeline: ['transformer', 'ner']
+ℹ Initial learn rate: 0.0
+E    #       LOSS TRANS...  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  -------------  --------  ------  ------  ------  ------
+  0       0        1721.34   1122.79    3.02    2.58    3.65    0.03
+ 33     200       37123.78  44576.59   45.11   52.97   39.28    0.45
+ 66     400         582.32    665.03   46.07   56.16   39.05    0.46
+100     600         258.80    319.16   43.46   55.15   35.86    0.43
+133     800         156.09    163.42   46.10   55.39   39.47    0.46
+166    1000         123.19    129.09   43.69   59.51   34.52    0.44
+200    1200          88.78     91.51   45.06   57.65   36.98    0.45
+233    1400          60.97     65.37   43.93   55.19   36.49    0.44
+266    1600          29.45     31.05   44.83   55.01   37.83    0.45
+300    1800          44.31     29.91   46.37   55.60   39.77    0.46
+333    2000          45.04     37.89   44.30   53.30   37.90    0.44
+366    2200          54.49     51.55   43.71   58.33   34.94    0.44
+400    2400          31.74     28.97   44.00   57.00   35.83    0.44
+433    2600          36.72     35.12   42.39   57.72   33.50    0.42
+466    2800          34.59     30.76   41.14   56.30   32.41    0.41
+500    3000          36.77     36.80   45.68   54.70   39.21    0.46
+533    3200          55.15     47.28   42.81   56.62   34.42    0.43
+566    3400          44.18     32.96   41.31   60.14   31.46    0.41
+✔ Saved pipeline to output directory
+cdssBER42GS/model-last
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$ python -m spacy train -g 0 keywordExtraction/config.cfg --output ./cdssBER91GS --paths.train ./data/testBERT.spacy --paths.dev ./data/finetuneBERT.spacy 
+✔ Created output directory: cdssBER91GS
+ℹ Saving to output directory: cdssBER91GS
+ℹ Using GPU: 0
+
+=========================== Initializing pipeline ===========================
+[2022-08-23 19:37:55,466] [INFO] Set up nlp object from config
+[2022-08-23 19:37:55,474] [INFO] Pipeline: ['transformer', 'ner']
+[2022-08-23 19:37:55,477] [INFO] Created vocabulary
+[2022-08-23 19:37:55,477] [INFO] Finished initializing nlp object
+Some weights of the model checkpoint at allenai/scibert_scivocab_cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[2022-08-23 19:37:58,333] [INFO] Initialized pipeline components: ['transformer', 'ner']
+✔ Initialized pipeline
+
+============================= Training pipeline =============================
+ℹ Pipeline: ['transformer', 'ner']
+ℹ Initial learn rate: 0.0
+E    #       LOSS TRANS...  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  -------------  --------  ------  ------  ------  ------
+  0       0         411.57    394.00    3.32    2.64    4.50    0.03
+ 16     200       50701.42  62069.68   48.48   36.62   71.72    0.48
+ 33     400        7223.20   9821.12   51.56   48.38   55.18    0.52
+ 50     600         435.98    555.87   52.78   47.40   59.54    0.53
+ 66     800         332.80    360.85   51.56   48.56   54.97    0.52
+ 83    1000         307.85    344.16   53.25   47.83   60.04    0.53
+100    1200         226.81    248.39   52.19   47.72   57.58    0.52
+116    1400         158.66    161.51   52.38   47.26   58.74    0.52
+133    1600         149.52    150.10   52.41   46.76   59.61    0.52
+150    1800         142.54    144.86   51.81   48.16   56.06    0.52
+166    2000         110.96     97.41   52.68   47.42   59.25    0.53
+183    2200          95.49     87.03   53.07   47.64   59.90    0.53
+200    2400         113.78    109.62   50.94   48.01   54.24    0.51
+216    2600          69.63     64.52   51.74   45.88   59.32    0.52
+✔ Saved pipeline to output directory
+cdssBER91GS/model-last
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$

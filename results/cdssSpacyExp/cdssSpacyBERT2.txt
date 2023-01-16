@@ -1,0 +1,45 @@
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$ python -m spacy train -g 0 keywordExtraction/config.cfg --output ./cdssSpacyBERToutput2 --paths.train ./data/finetuneBERT.spacy --paths.dev ./data/testBERT.spacy
+✔ Created output directory: cdssSpacyBERToutput2
+ℹ Saving to output directory: cdssSpacyBERToutput2
+ℹ Using GPU: 0
+
+=========================== Initializing pipeline ===========================
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+[2022-08-30 19:39:44,283] [INFO] Set up nlp object from config
+[2022-08-30 19:39:44,292] [INFO] Pipeline: ['transformer', 'ner']
+[2022-08-30 19:39:44,292] [INFO] Resuming training for: ['ner']
+[2022-08-30 19:39:44,299] [INFO] Copying tokenizer from: en_core_sci_lg
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+[2022-08-30 19:39:50,543] [INFO] Copying vocab from: en_core_sci_lg
+[2022-08-30 19:40:06,522] [INFO] Created vocabulary
+[2022-08-30 19:40:07,951] [INFO] Finished initializing nlp object
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.bias']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[2022-08-30 19:40:10,535] [INFO] Initialized pipeline components: ['transformer']
+✔ Initialized pipeline
+
+============================= Training pipeline =============================
+ℹ Pipeline: ['transformer', 'ner']
+ℹ Initial learn rate: 0.0
+E    #       LOSS TRANS...  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  -------------  --------  ------  ------  ------  ------
+  0       0           0.00    404.13    0.00    0.00    0.00    0.00
+ 33     200           0.00  120344.64    0.00    0.00    0.00    0.00
+ 66     400           0.00  66084.51   27.41   57.44   18.00    0.27
+100     600           0.00  42127.87   38.74   52.08   30.84    0.39
+133     800           0.00  29436.53   40.29   53.06   32.48    0.40
+166    1000           0.00  21853.06   41.35   52.39   34.15    0.41
+200    1200           0.00  16339.62   40.23   51.84   32.87    0.40
+233    1400           0.00  12304.66   40.52   51.13   33.56    0.41
+266    1600           0.00   9288.98   40.21   51.68   32.91    0.40
+300    1800           0.00   7034.11   40.22   51.25   33.10    0.40
+333    2000           0.00   5557.91   39.75   52.05   32.15    0.40
+366    2200           0.00   4367.54   39.86   50.38   32.97    0.40
+400    2400           0.00   3479.28   39.61   50.74   32.48    0.40
+433    2600           0.00   2856.74   39.00   50.68   31.69    0.39
+✔ Saved pipeline to output directory
+cdssSpacyBERToutput2/model-last
+(pytorch) [rgoli@node0089 NLP_KPIdentify]$ 

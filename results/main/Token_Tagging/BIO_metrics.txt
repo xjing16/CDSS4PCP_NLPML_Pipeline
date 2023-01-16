@@ -1,0 +1,167 @@
+(pytorch) [rgoli@node0201 MetaMap-src]$ python main.py -m test
+====================================================================================================
+Mode: test
+Sections Included: ['title', 'abstract']
+Features: ['CEM', 'WFOF', 'POS', 'LEN', 'TI', 'TR']
+Vocab Stemming: no
+Logging Level: warn
+====================================================================================================
+PARAMS: {'word_embedding_dim': 128, 'char_embedding_dim': 32, 'word_max_len': 32, 'sentence_max_len': 256, 'hidden_dim': 128, 'use_crf': 'True', 'lstm_num_layers': 1, 'is_bidirectional': 'True', 'dropout': 0.5, 'tags_path': './interim_data/tags', 'epochs': 20, 'batch_size': 128, 'lr': 0.01, 'weight_decay': 0.0001, 'optim_scheduler_factor': 0.1, 'optim_scheduler_patience': 1, 'optim_scheduler_verbose': 'True'}
+BiLSTM_CRF(
+  (word_embedding): Embedding(22016, 128, padding_idx=0)
+  (char_embedding): CharEncode(
+    (embedding): Embedding(46, 32, padding_idx=0)
+    (bilstm): LSTM(32, 32, bidirectional=True)
+    (out): Linear(in_features=64, out_features=32, bias=True)
+    (dropout): Dropout(p=0.5, inplace=False)
+  )
+  (feature_mapping): Linear(in_features=5, out_features=64, bias=True)
+  (bilstm): LSTM(224, 128, bidirectional=True)
+  (hidden2tag): Linear(in_features=352, out_features=5, bias=True)
+  (crf_layer): CRF()
+  (dropout): Dropout(p=0.5, inplace=False)
+  (batch_norm): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer_norm1): LayerNorm((256, 224), eps=1e-05, elementwise_affine=True)
+  (layer_norm2): LayerNorm((256, 352), eps=1e-05, elementwise_affine=True)
+  (loss_fuc_cel): CrossEntropyLoss()
+)
+finish: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 166/166 [00:11<00:00, 14.81it/s]
+INFO: p: 62.84, r: 50.56, f1: 56.03
+Confusion Matrix:
+ [[136555.   5007.   4323.]
+ [ 13372.  38432.   1833.]
+ [ 14719.   3300.  71260.]]
+--------------------------------------------------
+Label: B-KP
+TP:136555.0 FN:9330.0 FP:28091.0 TN:114825.0
+--------------------------------------------------
+    Accuracy:   0.870426
+    Misclassification:  0.129574
+    Precision:  0.829385
+    Sensitivity/Recall: 0.936046
+    Specificity:        0.803444
+    F1 Score:   0.879494
+--------------------------------------------------
+Label: I-KP
+TP:38432.0 FN:15205.0 FP:8307.0 TN:226857.0
+--------------------------------------------------
+    Accuracy:   0.918588
+    Misclassification:  0.081412
+    Precision:  0.822268
+    Sensitivity/Recall: 0.716520
+    Specificity:        0.964676
+    F1 Score:   0.765761
+--------------------------------------------------
+Label: O
+TP:71260.0 FN:18019.0 FP:6156.0 TN:193366.0
+--------------------------------------------------
+    Accuracy:   0.916292
+    Misclassification:  0.083708
+    Precision:  0.920482
+    Sensitivity/Recall: 0.798172
+    Specificity:        0.969146
+    F1 Score:   0.854975
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.90177
+Avg. Precision: 0.857378
+Avg. F1-Score: 0.833410
+Avg. Sensitivity: 0.816913
+Avg. Specificity: 0.912422
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.73      0.82      0.77    145885
+
+   micro avg       0.73      0.82      0.77    145885
+   macro avg       0.73      0.82      0.77    145885
+weighted avg       0.73      0.82      0.77    145885
+
+Accuracy given by SeqEval: 85.27%
+INFO: Total time of model test:25.905S
+(pytorch) [rgoli@node0201 MetaMap-src]$ python main.py -m predict
+====================================================================================================
+Mode: predict
+Sections Included: ['title', 'abstract']
+Features: ['CEM', 'WFOF', 'POS', 'LEN', 'TI', 'TR']
+Vocab Stemming: no
+Logging Level: warn
+====================================================================================================
+42-th document processed: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:01<00:00, 35.49it/s]
+The 42 document calculation TF-IDF completed: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 7180.56it/s]
+The 42 document has been calculated TextRank completed: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 502.66it/s]
+The 42-th document feature is completed: : 42it [00:00, 4070.16it/s]
+INFO: predict data saving completed!
+PARAMS: {'word_embedding_dim': 128, 'char_embedding_dim': 32, 'word_max_len': 32, 'sentence_max_len': 256, 'hidden_dim': 128, 'use_crf': 'True', 'lstm_num_layers': 1, 'is_bidirectional': 'True', 'dropout': 0.5, 'tags_path': './interim_data/tags', 'epochs': 20, 'batch_size': 128, 'lr': 0.01, 'weight_decay': 0.0001, 'optim_scheduler_factor': 0.1, 'optim_scheduler_patience': 1, 'optim_scheduler_verbose': 'True'}
+BiLSTM_CRF(
+  (word_embedding): Embedding(22016, 128, padding_idx=0)
+  (char_embedding): CharEncode(
+    (embedding): Embedding(46, 32, padding_idx=0)
+    (bilstm): LSTM(32, 32, bidirectional=True)
+    (out): Linear(in_features=64, out_features=32, bias=True)
+    (dropout): Dropout(p=0.5, inplace=False)
+  )
+  (feature_mapping): Linear(in_features=5, out_features=64, bias=True)
+  (bilstm): LSTM(224, 128, bidirectional=True)
+  (hidden2tag): Linear(in_features=352, out_features=5, bias=True)
+  (crf_layer): CRF()
+  (dropout): Dropout(p=0.5, inplace=False)
+  (batch_norm): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (layer_norm1): LayerNorm((256, 224), eps=1e-05, elementwise_affine=True)
+  (layer_norm2): LayerNorm((256, 352), eps=1e-05, elementwise_affine=True)
+  (loss_fuc_cel): CrossEntropyLoss()
+)
+finish: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  8.96it/s]
+Confusion Matrix:
+ [[1034.   79.  267.]
+ [ 211.  440.   25.]
+ [2221.  558. 1407.]]
+--------------------------------------------------
+Label: B-KP
+TP:1034.0 FN:346.0 FP:2432.0 TN:2430.0
+--------------------------------------------------
+    Accuracy:   0.554950
+    Misclassification:  0.445050
+    Precision:  0.298327
+    Sensitivity/Recall: 0.749275
+    Specificity:        0.499794
+    F1 Score:   0.426744
+--------------------------------------------------
+Label: I-KP
+TP:440.0 FN:236.0 FP:637.0 TN:4929.0
+--------------------------------------------------
+    Accuracy:   0.860141
+    Misclassification:  0.139859
+    Precision:  0.408542
+    Sensitivity/Recall: 0.650888
+    Specificity:        0.885555
+    F1 Score:   0.501997
+--------------------------------------------------
+Label: O
+TP:1407.0 FN:2779.0 FP:292.0 TN:1764.0
+--------------------------------------------------
+    Accuracy:   0.508010
+    Misclassification:  0.491990
+    Precision:  0.828134
+    Sensitivity/Recall: 0.336120
+    Specificity:        0.857977
+    F1 Score:   0.478165
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.64103
+Avg. Precision: 0.511668
+Avg. F1-Score: 0.468968
+Avg. Sensitivity: 0.578761
+Avg. Specificity: 0.747775
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.23      0.58      0.33      1380
+
+   micro avg       0.23      0.58      0.33      1380
+   macro avg       0.23      0.58      0.33      1380
+weighted avg       0.23      0.58      0.33      1380
+
+Accuracy given by SeqEval: 46.16%
+INFO: Total time of model training:9.045S
+(pytorch) [rgoli@node0201 MetaMap-src]$

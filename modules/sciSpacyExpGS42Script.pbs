@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -N cdssSpacyExp
+#PBS -l select=1:ncpus=24:mem=62gb:ngpus=1:gpu_model=v100,walltime=17:00:00
+#PBS -j oe
+cd $PBS_O_WORKDIR
+
+source activate pytorch
+cd ~/NLP_KPIdentify/modules
+python sciSpacyExpGS42.py

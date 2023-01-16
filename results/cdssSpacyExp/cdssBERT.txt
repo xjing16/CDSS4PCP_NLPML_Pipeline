@@ -1,0 +1,308 @@
+(pytorch) [rgoli@node0092 MetaMap-src]$ conda install -c conda-forge spacy=3.2.4 cupy spacy-transformers
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 4.13.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/rgoli/.conda/envs/pytorch
+
+  added / updated specs:
+    - cupy
+    - spacy-transformers
+    - spacy=3.2.4
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    spacy-3.2.4                |   py38h514daf8_0         6.1 MB  conda-forge
+    spacy-transformers-1.1.7   |     pyhd8ed1ab_0          41 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         6.1 MB
+
+The following packages will be UPDATED:
+
+  spacy-transformers pkgs/main/linux-64::spacy-transformer~ --> conda-forge/noarch::spacy-transformers-1.1.7-pyhd8ed1ab_0
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  spacy               pkgs/main::spacy-3.3.1-py38h79cecc1_0 --> conda-forge::spacy-3.2.4-py38h514daf8_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+spacy-transformers-1 | 41 KB     | ######################################################################################################################################## | 100% 
+spacy-3.2.4          | 6.1 MB    | ######################################################################################################################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(pytorch) [rgoli@node0092 MetaMap-src]$
+(pytorch) [rgoli@node0092 MetaMap-src]$ python -m spacy validate
+✔ Loaded compatibility table
+
+================= Installed pipeline packages (spaCy v3.2.4) =================
+ℹ spaCy installation:
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy
+
+NAME                   SPACY            VERSION                            
+en_core_sci_scibert    >=3.2.3,<3.3.0   0.5.0   ✔
+en_ner_bionlp13cg_md   >=3.2.3,<3.3.0   0.5.0   ✔
+en_core_web_lg         >=3.2.0,<3.3.0   3.2.0   ✔
+en_ner_bc5cdr_md       >=3.2.3,<3.3.0   0.5.0   ✔
+en_core_sci_lg         >=3.0.1,<3.1.0   0.4.0   --> n/a       
+en_core_web_trf        >=3.2.0,<3.3.0   3.2.0   ✔
+en_core_web_sm         >=3.0.0,<3.1.0   3.0.0   --> 3.2.0     
+
+
+============================== Install updates ==============================
+Use the following commands to update the packages:
+python -m spacy download en_core_web_sm
+
+ℹ The following packages are custom spaCy pipelines or not available
+for spaCy v3.2.4:
+en_core_sci_lg
+(pytorch) [rgoli@node0092 MetaMap-src]$
+(pytorch) [rgoli@node0092 keywordExtraction]$ python -m spacy convert ../data/trainBERT.tsv ./ -t json -n 1 -c iob
+ℹ Auto-detected token-per-line NER format
+⚠ Document delimiters found, automatic document segmentation with `-n`
+disabled.
+⚠ No sentence boundaries found. Use `-s` to automatically segment
+sentences.
+✔ Generated output file (1 documents): trainBERT.json
+(pytorch) [rgoli@node0092 keywordExtraction]$ python -m spacy convert ../data/valBERT.tsv ./ -t json -n 1 -c iob
+ℹ Auto-detected token-per-line NER format
+⚠ Document delimiters found, automatic document segmentation with `-n`
+disabled.
+⚠ No sentence boundaries found. Use `-s` to automatically segment
+sentences.
+✔ Generated output file (1 documents): valBERT.json
+(pytorch) [rgoli@node0092 keywordExtraction]$ python -m spacy convert ../data/finetuneBERT.tsv ./ -t json -n 1 -c iob
+ℹ Auto-detected token-per-line NER format
+⚠ Document delimiters found, automatic document segmentation with `-n`
+disabled.
+⚠ No sentence boundaries found. Use `-s` to automatically segment
+sentences.
+✔ Generated output file (1 documents): finetuneBERT.json
+(pytorch) [rgoli@node0092 keywordExtraction]$ python -m spacy convert ../data/testBERT.tsv ./ -t json -n 1 -c iob
+ℹ Auto-detected token-per-line NER format
+⚠ Document delimiters found, automatic document segmentation with `-n`
+disabled.
+⚠ No sentence boundaries found. Use `-s` to automatically segment
+sentences.
+✔ Generated output file (1 documents): testBERT.json
+(pytorch) [rgoli@node0092 keywordExtraction]$ cd data
+bash: cd: data: No such file or directory
+(pytorch) [rgoli@node0092 keywordExtraction]$ cd ../data
+(pytorch) [rgoli@node0092 data]$ python -m spacy convert trainBERT.json ./ -t spacy
+python -m spacy convert valBERT.json ./ -t spacy✔ Generated output file (2488 documents): trainBERT.spacy
+(pytorch) [rgoli@node0092 data]$ python -m spacy convert valBERT.json ./ -t spacy
+✔ Generated output file (622 documents): valBERT.spacy
+(pytorch) [rgoli@node0092 data]$ python -m spacy convert finetuneBERT.json ./ -t spacy
+✔ Generated output file (42 documents): finetuneBERT.spacy
+(pytorch) [rgoli@node0092 data]$ python -m spacy convert testBERT.json ./ -t spacy
+✔ Generated output file (91 documents): testBERT.spacy
+(pytorch) [rgoli@node0092 data]$ 
+(pytorch) [rgoli@node0092 MetaMap-src]$ conda install -c conda-forge cupy==9.6.0
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: | 
+The environment is inconsistent, please check the package plan carefully
+The following packages are causing the inconsistency:
+
+  - conda-forge/noarch::seaborn-base==0.11.2=pyhd8ed1ab_0
+  - conda-forge/noarch::bleach==4.1.0=pyhd8ed1ab_0
+  - conda-forge/linux-64::pycocotools==2.0.4=py38h6c62de6_0
+  - conda-forge/noarch::jupyterlab==2.2.0=py_0
+  - conda-forge/noarch::networkx==2.6.3=pyhd8ed1ab_1
+  - conda-forge/linux-64::pytest==6.2.5=py38h578d9bd_2
+  - conda-forge/noarch::pydotplus==2.0.2=py_1
+  - conda-forge/linux-64::spacy==3.2.4=py38h514daf8_0
+  - conda-forge/linux-64::matplotlib-base==3.5.1=py38hf4fb855_0
+  - defaults/linux-64::transformers==4.18.0=py38h06a4308_0
+  - conda-forge/noarch::jupyterlab_server==1.2.0=py_0
+  - conda-forge/linux-64::widgetsnbextension==3.6.0=py38h578d9bd_0
+  - conda-forge/linux-64::matplotlib==3.5.1=py38h578d9bd_0
+  - conda-forge/noarch::spacy-transformers==1.1.7=pyhd8ed1ab_0
+  - conda-forge/linux-64::pydot==1.4.2=py38h578d9bd_1
+  - conda-forge/noarch::packaging==21.3=pyhd8ed1ab_0
+  - conda-forge/noarch::ipywidgets==7.7.0=pyhd8ed1ab_0
+  - conda-forge/noarch::huggingface_hub==0.8.1=pyhd8ed1ab_0
+  - conda-forge/noarch::neurdflib==5.0.1=py_0
+  - conda-forge/linux-64::nbconvert==6.4.0=py38h578d9bd_0
+  - conda-forge/noarch::rdflib==6.1.1=pyhd8ed1ab_0
+  - conda-forge/noarch::notebook==6.4.7=pyha770c72_0
+  - conda-forge/noarch::nibabel==3.2.2=pyhd8ed1ab_0
+  - conda-forge/noarch::seaborn==0.11.2=hd8ed1ab_0
+  - conda-forge/noarch::nilearn==0.9.0=pyhd8ed1ab_1
+  - conda-forge/linux-64::nipype==1.7.0=py38h578d9bd_0
+  - conda-forge/noarch::prov==2.0.0=pyhd3deb0d_0
+done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.12.0
+  latest version: 4.13.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/rgoli/.conda/envs/pytorch
+
+  added / updated specs:
+    - cupy==9.6.0
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cupy-9.6.0                 |   py38h8b8d915_0        68.6 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        68.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  cupy               conda-forge/linux-64::cupy-9.6.0-py38h8b8d915_0
+  pyparsing          conda-forge/noarch::pyparsing-3.0.9-pyhd8ed1ab_0
+
+The following packages will be UPDATED:
+
+  openssl                                 1.1.1l-h7f98852_0 --> 1.1.1o-h166bdaf_0
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+cupy-9.6.0           | 68.6 MB   | ######################################################################################################################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(pytorch) [rgoli@node0092 MetaMap-src]$
+
+====================================================================
+word_tokenize on Dataset
+====================================================================
+(pytorch) [rgoli@node0092 MetaMap-src]$ python -m spacy train -g 0 keywordExtraction/config.cfg --output ./cdssBERToutput --paths.train ./data/trainBERT.spacy --paths.dev ./data/valBERT.spacy 
+ℹ Saving to output directory: cdssBERToutput
+ℹ Using GPU: 0
+
+=========================== Initializing pipeline ===========================
+[2022-08-21 16:30:21,565] [INFO] Set up nlp object from config
+[2022-08-21 16:30:21,573] [INFO] Pipeline: ['transformer', 'ner']
+[2022-08-21 16:30:21,576] [INFO] Created vocabulary
+[2022-08-21 16:30:21,577] [INFO] Finished initializing nlp object
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.decoder.weight', 'lm_head.dense.bias']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[2022-08-21 16:30:40,873] [INFO] Initialized pipeline components: ['transformer', 'ner']
+✔ Initialized pipeline
+
+============================= Training pipeline =============================
+ℹ Pipeline: ['transformer', 'ner']
+ℹ Initial learn rate: 0.0
+E    #       LOSS TRANS...  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  -------------  --------  ------  ------  ------  ------
+  0       0       11835.34    813.72    0.94    2.13    0.60    0.01
+
+  0     200      368174.14  86589.40   66.50   69.84   63.46    0.66
+  0     400       10601.42  16174.71   81.82   81.70   81.95    0.82
+  1     600        3710.65   4980.88   75.95   64.41   92.55    0.76
+  1     800        4241.40   5441.69   87.19   83.35   91.39    0.87
+  2    1000        2000.63   2331.30   89.06   91.56   86.69    0.89
+  2    1200        2140.98   2292.71   89.96   90.97   88.98    0.90
+  3    1400        2050.20   2001.31   89.92   92.31   87.64    0.90
+  3    1600        1542.22   1511.29   91.90   91.72   92.07    0.92
+  4    1800        1634.71   1524.12   91.61   90.44   92.81    0.92
+  4    2000        1514.30   1392.00   91.19   89.42   93.04    0.91
+  5    2200        1266.26   1175.33   90.58   86.93   94.55    0.91
+  5    2400        1230.94   1113.63   92.44   92.49   92.38    0.92
+  6    2600        1191.09   1025.46   92.35   90.89   93.87    0.92
+  6    2800        1018.01    887.95   92.21   89.29   95.32    0.92
+  7    3000         741.42    681.03   92.45   91.14   93.81    0.92
+  7    3200        1176.01    904.78   92.35   90.27   94.53    0.92
+  8    3400        1003.15    802.40   92.36   90.25   94.56    0.92
+  8    3600         746.13    616.04   92.11   90.42   93.87    0.92
+  9    3800         885.09    706.52   92.16   90.00   94.43    0.92
+  9    4000         518.79    446.13   91.90   88.98   95.01    0.92
+  9    4200         731.12    590.08   91.22   88.17   94.48    0.91
+ 10    4400         514.87    433.87   92.89   91.64   94.18    0.93
+ 10    4600         469.26    420.22   91.79   89.71   93.96    0.92
+ 11    4800         376.35    356.56   91.44   89.40   93.59    0.91
+ 11    5000         519.54    433.74   92.48   90.62   94.42    0.92
+ 12    5200         488.42    404.42   90.82   87.42   94.48    0.91
+ 12    5400         244.71    248.49   91.50   87.72   95.63    0.92
+ 13    5600         222.53    252.38   92.75   91.73   93.79    0.93
+ 13    5800         302.91    291.42   92.11   89.51   94.87    0.92
+ 14    6000         600.91    489.17   92.24   90.16   94.40    0.92
+✔ Saved pipeline to output directory
+cdssBERToutput/model-last
+(pytorch) [rgoli@node0092 MetaMap-src]$
+
+====================================================================
+sent2words on Dataset
+====================================================================
+(pytorch) [rgoli@node0092 MetaMap-src]$ python -m spacy train -g 0 keywordExtraction/config.cfg --output ./cdssBERToutput --paths.train ./data/trainBERT.spacy --paths.dev ./data/valBERT.spacy 
+ℹ Saving to output directory: cdssBERToutput
+ℹ Using GPU: 0
+
+=========================== Initializing pipeline ===========================
+[2022-08-21 18:59:09,200] [INFO] Set up nlp object from config
+[2022-08-21 18:59:09,208] [INFO] Pipeline: ['transformer', 'ner']
+[2022-08-21 18:59:09,211] [INFO] Created vocabulary
+[2022-08-21 18:59:09,212] [INFO] Finished initializing nlp object
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.layer_norm.weight', 'lm_head.layer_norm.bias', 'lm_head.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[2022-08-21 18:59:18,841] [INFO] Initialized pipeline components: ['transformer', 'ner']
+✔ Initialized pipeline
+
+============================= Training pipeline =============================
+ℹ Pipeline: ['transformer', 'ner']
+ℹ Initial learn rate: 0.0
+E    #       LOSS TRANS...  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  -------------  --------  ------  ------  ------  ------
+  0       0        4675.01    352.81    0.63    1.84    0.38    0.01
+  0     200      394887.53  98729.79   66.98   64.12   70.11    0.67
+  1     400       14803.13  21383.42   80.95   75.86   86.77    0.81
+  1     600        4573.74   6351.47   88.66   88.91   88.41    0.89
+  2     800        3164.61   4164.35   90.18   91.73   88.68    0.90
+  2    1000        2550.90   3068.19   91.64   92.02   91.27    0.92
+  3    1200        1787.91   1954.28   90.38   88.02   92.87    0.90
+  4    1400        2454.04   2606.96   91.78   92.15   91.42    0.92
+  4    1600        2287.16   2315.51   88.65   83.07   95.04    0.89
+  5    1800        1642.49   1577.63   91.69   90.97   92.43    0.92
+  5    2000        1757.03   1615.16   92.30   91.40   93.22    0.92
+  6    2200        1288.71   1118.91   89.64   86.14   93.45    0.90
+  7    2400        1493.83   1330.29   91.97   91.23   92.71    0.92
+  7    2600        1143.09    938.44   89.42   85.32   93.92    0.89
+  8    2800        1339.38   1065.09   90.16   85.41   95.47    0.90
+  8    3000         901.91    704.11   91.59   89.10   94.23    0.92
+  9    3200         779.90    589.35   91.36   88.17   94.79    0.91
+ 10    3400         756.59    566.19   91.54   88.49   94.81    0.92
+ 10    3600         732.60    519.99   91.27   90.18   92.38    0.91
+✔ Saved pipeline to output directory
+cdssBERToutput/model-last
+(pytorch) [rgoli@node0092 MetaMap-src]$

@@ -1,0 +1,197 @@
+(pytorch) [rgoli@node1399 MetaMap-src]$ python modules/globalNeuralAttn.py 
+Word Embedding Type:  word2vec
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/spacy/util.py:833: UserWarning: [W095] Model 'en_core_sci_lg' (0.4.0) was trained with spaCy v3.0 and may not be 100% compatible with the current version (3.2.4). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+/home/rgoli/.local/lib/python3.8/site-packages/sklearn/base.py:324: UserWarning: Trying to unpickle estimator TfidfTransformer from version 0.20.3 when using version 1.0.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/rgoli/.local/lib/python3.8/site-packages/sklearn/base.py:324: UserWarning: Trying to unpickle estimator TfidfVectorizer from version 0.20.3 when using version 1.0.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+JSON pre-processing is completed for 42-th document!: 100%|████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 11620.87it/s]
+  0%|                                                                                                                                          | 0/42 [00:00<?, ?it/s]/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/scispacy/candidate_generation.py:284: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  extended_neighbors[empty_vectors_boolean_flags] = numpy.array(neighbors)[:-1]
+/home/rgoli/.conda/envs/pytorch/lib/python3.8/site-packages/scispacy/candidate_generation.py:285: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  extended_distances[empty_vectors_boolean_flags] = numpy.array(distances)[:-1]
+GS Data for 42-th document!: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:03<00:00, 11.77it/s]
+Train Keyword Marking:
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1033/1033 [00:20<00:00, 51.05it/s]
+Test Keyword Marking:
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2066/2066 [00:32<00:00, 64.48it/s]
+GS Keyword Marking:
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 152.99it/s]
+Total Sentences in Train Corpus:  12141
+Total Sentences in Test Corpus:  20578
+Creating Word2Vec Embedding!!!
+Vocabulary Size: 21540
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Read Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Using pretrained word embeddings
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Bi-LSTM-CRF Model state_dict >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+transitions 	 torch.Size([5, 5])
+word_embeds.weight 	 torch.Size([21540, 300])
+lstm.weight_ih_l0 	 torch.Size([512, 300])
+lstm.weight_hh_l0 	 torch.Size([512, 128])
+lstm.bias_ih_l0 	 torch.Size([512])
+lstm.bias_hh_l0 	 torch.Size([512])
+lstm.weight_ih_l0_reverse 	 torch.Size([512, 300])
+lstm.weight_hh_l0_reverse 	 torch.Size([512, 128])
+lstm.bias_ih_l0_reverse 	 torch.Size([512])
+lstm.bias_hh_l0_reverse 	 torch.Size([512])
+lstm2.weight_ih_l0 	 torch.Size([512, 256])
+lstm2.weight_hh_l0 	 torch.Size([512, 128])
+lstm2.bias_ih_l0 	 torch.Size([512])
+lstm2.bias_hh_l0 	 torch.Size([512])
+lstm2.weight_ih_l0_reverse 	 torch.Size([512, 256])
+lstm2.weight_hh_l0_reverse 	 torch.Size([512, 128])
+lstm2.bias_ih_l0_reverse 	 torch.Size([512])
+lstm2.bias_hh_l0_reverse 	 torch.Size([512])
+hidden2tag.weight 	 torch.Size([5, 256])
+hidden2tag.bias 	 torch.Size([5])
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Pretrained LM state_dict >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+emb_layer.weight 	 torch.Size([21540, 300])
+lstm.weight_ih_l0 	 torch.Size([512, 300])
+lstm.weight_hh_l0 	 torch.Size([512, 128])
+lstm.bias_ih_l0 	 torch.Size([512])
+lstm.bias_hh_l0 	 torch.Size([512])
+lstm.weight_ih_l0_reverse 	 torch.Size([512, 300])
+lstm.weight_hh_l0_reverse 	 torch.Size([512, 128])
+lstm.bias_ih_l0_reverse 	 torch.Size([512])
+lstm.bias_hh_l0_reverse 	 torch.Size([512])
+fc.weight 	 torch.Size([21540, 256])
+fc.bias 	 torch.Size([21540])
+Epoch: 1/20 Loss: 9.731
+Epoch: 2/20 Loss: 6.436
+Epoch: 3/20 Loss: 5.645
+Epoch: 4/20 Loss: 5.156
+Epoch: 5/20 Loss: 4.824
+Epoch: 6/20 Loss: 4.570
+Epoch: 7/20 Loss: 4.360
+Epoch: 8/20 Loss: 4.167
+Epoch: 9/20 Loss: 3.992
+Epoch: 10/20 Loss: 3.824
+Epoch: 11/20 Loss: 3.668
+Epoch: 12/20 Loss: 3.511
+Epoch: 13/20 Loss: 3.359
+Epoch: 14/20 Loss: 3.207
+Epoch: 15/20 Loss: 3.309
+Epoch: 16/20 Loss: 3.394
+Epoch: 17/20 Loss: 2.968
+Epoch: 18/20 Loss: 2.791
+Epoch: 19/20 Loss: 2.650
+Epoch: 20/20 Loss: 2.526
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Test Loss: 9.112
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< TEST Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 87729.  11460.   8633.]
+ [  7445.  30354.   2128.]
+ [  7598.   3974. 287976.]]
+--------------------------------------------------
+Label: B-KP
+TP:87729.0 FN:20093.0 FP:15043.0 TN:324432.0
+--------------------------------------------------
+    Accuracy:	0.921448
+    Misclassification:	0.078552
+    Precision:	0.853627
+    Sensitivity/Recall:	0.813647
+    Specificity:	0.955687
+    F1 Score:	0.833158
+--------------------------------------------------
+Label: I-KP
+TP:30354.0 FN:9573.0 FP:15434.0 TN:391936.0
+--------------------------------------------------
+    Accuracy:	0.944093
+    Misclassification:	0.055907
+    Precision:	0.662925
+    Sensitivity/Recall:	0.760237
+    Specificity:	0.962113
+    F1 Score:	0.708254
+--------------------------------------------------
+Label: O
+TP:287976.0 FN:11572.0 FP:10761.0 TN:136988.0
+--------------------------------------------------
+    Accuracy:	0.950071
+    Misclassification:	0.049929
+    Precision:	0.963978
+    Sensitivity/Recall:	0.961368
+    Specificity:	0.927167
+    F1 Score:	0.962672
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.93854
+Avg. Precision: 0.826844
+Avg. F1-Score: 0.834694
+Avg. Sensitivity: 0.845084
+Avg. Specificity: 0.948323
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.70      0.67      0.68    107822
+
+   micro avg       0.70      0.67      0.68    107822
+   macro avg       0.70      0.67      0.68    107822
+weighted avg       0.70      0.67      0.68    107822
+
+Precision given by SeqEval: 70.03%
+Recall given by SeqEval: 66.82%
+F1-Score given by SeqEval: 68.39%
+Accuracy given by SeqEval: 90.78%
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< GS Data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Confusion Matrix:
+ [[ 646.   96.  287.]
+ [ 103.  346.   25.]
+ [1317.  523. 4954.]]
+--------------------------------------------------
+Label: B-KP
+TP:646.0 FN:383.0 FP:1420.0 TN:5848.0
+--------------------------------------------------
+    Accuracy:	0.782693
+    Misclassification:	0.217307
+    Precision:	0.312682
+    Sensitivity/Recall:	0.627794
+    Specificity:	0.804623
+    F1 Score:	0.417447
+--------------------------------------------------
+Label: I-KP
+TP:346.0 FN:128.0 FP:619.0 TN:7204.0
+--------------------------------------------------
+    Accuracy:	0.909967
+    Misclassification:	0.090033
+    Precision:	0.358549
+    Sensitivity/Recall:	0.729958
+    Specificity:	0.920874
+    F1 Score:	0.480890
+--------------------------------------------------
+Label: O
+TP:4954.0 FN:1840.0 FP:312.0 TN:1191.0
+--------------------------------------------------
+    Accuracy:	0.740629
+    Misclassification:	0.259371
+    Precision:	0.940752
+    Sensitivity/Recall:	0.729173
+    Specificity:	0.792415
+    F1 Score:	0.821559
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.81110
+Avg. Precision: 0.537328
+Avg. F1-Score: 0.573299
+Avg. Sensitivity: 0.695642
+Avg. Specificity: 0.839304
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.24      0.48      0.32      1029
+
+   micro avg       0.24      0.48      0.32      1029
+   macro avg       0.24      0.48      0.32      1029
+weighted avg       0.24      0.48      0.32      1029
+
+Precision given by SeqEval: 23.65%
+Recall given by SeqEval: 47.62%
+F1-Score given by SeqEval: 31.60%
+Accuracy given by SeqEval: 71.66%

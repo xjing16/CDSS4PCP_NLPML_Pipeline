@@ -1,0 +1,228 @@
+(pytorch) [rgoli@node0026 NLP_KPIdentify]$ python mainV2.py -m train
+Word Embedding Type:  word2vec
+Word Embedding Type:  word2vec
+====================================================================================================
+Mode: train
+====================================================================================================
+Vocabulary Size: 5043
+Using pretrained word embeddings
+Train Keyword Marking:
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1049/1049 [00:09<00:00, 110.76it/s]
+Test Keyword Marking:
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2099/2099 [00:14<00:00, 146.63it/s]
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Start hierAttnNtwk-Bi-LSTM-CRF Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Epoch: 2/30 Loss: 3.400
+Epoch: 4/30 Loss: 1.639
+Epoch: 6/30 Loss: 1.253
+Epoch: 8/30 Loss: 1.010
+Epoch: 10/30 Loss: 0.820
+Epoch: 12/30 Loss: 0.645
+Epoch: 14/30 Loss: 0.549
+Epoch: 16/30 Loss: 0.516
+Epoch: 18/30 Loss: 0.421
+Epoch: 20/30 Loss: 0.394
+Epoch: 22/30 Loss: 0.343
+Epoch: 24/30 Loss: 0.317
+Epoch: 26/30 Loss: 0.346
+Epoch: 28/30 Loss: 0.263
+Epoch: 30/30 Loss: 0.208
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END hierAttnNtwk-Bi-LSTM-CRF Train >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< START hierAttnNtwk-Bi-LSTM-CRF Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Test Loss: 15.141
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END hierAttnNtwk-Bi-LSTM-CRF Test >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+(pytorch) [rgoli@node0026 NLP_KPIdentify]$ python mainV2.py -m test
+Word Embedding Type:  word2vec
+Word Embedding Type:  word2vec
+====================================================================================================
+Mode: test
+====================================================================================================
+Vocabulary Size: 5043
+Using pretrained word embeddings
+Test Keyword Marking:
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2099/2099 [00:15<00:00, 138.29it/s]
+Metrics on Test DS:
+Confusion Matrix:
+ [[ 39152.   1843.  15167.]
+ [  1539.  13321.   4542.]
+ [ 10359.   4261. 378061.]]
+--------------------------------------------------
+Label: B-KP
+TP:39152.0 FN:17010.0 FP:11898.0 TN:400185.0
+--------------------------------------------------
+    Accuracy:   0.938263
+    Misclassification:  0.061737
+    Precision:  0.766934
+    Sensitivity/Recall: 0.697126
+    Specificity:        0.971127
+    F1 Score:   0.730366
+--------------------------------------------------
+Label: I-KP
+TP:13321.0 FN:6081.0 FP:6104.0 TN:442739.0
+--------------------------------------------------
+    Accuracy:   0.973977
+    Misclassification:  0.026023
+    Precision:  0.685766
+    Sensitivity/Recall: 0.686579
+    Specificity:        0.986401
+    F1 Score:   0.686172
+--------------------------------------------------
+Label: O
+TP:378061.0 FN:14620.0 FP:19709.0 TN:55855.0
+--------------------------------------------------
+    Accuracy:   0.926686
+    Misclassification:  0.073314
+    Precision:  0.950451
+    Sensitivity/Recall: 0.962769
+    Specificity:        0.739175
+    F1 Score:   0.956570
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.94631
+Avg. Precision: 0.801050
+Avg. F1-Score: 0.791036
+Avg. Sensitivity: 0.782158
+Avg. Specificity: 0.898901
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.72      0.66      0.69     56162
+
+   micro avg       0.72      0.66      0.69     56162
+   macro avg       0.72      0.66      0.69     56162
+weighted avg       0.72      0.66      0.69     56162
+
+Precision given by SeqEval: 72.11%
+Recall given by SeqEval: 65.94%
+F1-Score given by SeqEval: 68.89%
+Accuracy given by SeqEval: 91.95%
+(pytorch) [rgoli@node0026 NLP_KPIdentify]$ python mainV2.py -m testgs42
+Word Embedding Type:  word2vec
+Word Embedding Type:  word2vec
+====================================================================================================
+Mode: testgs42
+====================================================================================================
+Invalid option selected!!!
+ Mode of opertion: train/test/predict/createData
+(pytorch) [rgoli@node0026 NLP_KPIdentify]$ python mainV2.py -m testGS
+Word Embedding Type:  word2vec
+Word Embedding Type:  word2vec
+====================================================================================================
+Mode: testGS
+====================================================================================================
+Vocabulary Size: 5043
+Using pretrained word embeddings
+Test GS42 Keyword Marking:
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 42/42 [00:00<00:00, 114.05it/s]
+Metrics on Test GS42 DS:
+Confusion Matrix:
+ [[ 529.   56.  463.]
+ [  60.  214.  176.]
+ [ 299.  114. 6582.]]
+--------------------------------------------------
+Label: B-KP
+TP:529.0 FN:519.0 FP:359.0 TN:7086.0
+--------------------------------------------------
+    Accuracy:   0.896621
+    Misclassification:  0.103379
+    Precision:  0.595721
+    Sensitivity/Recall: 0.504771
+    Specificity:        0.951780
+    F1 Score:   0.546488
+--------------------------------------------------
+Label: I-KP
+TP:214.0 FN:236.0 FP:170.0 TN:7873.0
+--------------------------------------------------
+    Accuracy:   0.952196
+    Misclassification:  0.047804
+    Precision:  0.557292
+    Sensitivity/Recall: 0.475556
+    Specificity:        0.978864
+    F1 Score:   0.513189
+--------------------------------------------------
+Label: O
+TP:6582.0 FN:413.0 FP:639.0 TN:859.0
+--------------------------------------------------
+    Accuracy:   0.876133
+    Misclassification:  0.123867
+    Precision:  0.911508
+    Sensitivity/Recall: 0.940958
+    Specificity:        0.573431
+    F1 Score:   0.925999
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.90832
+Avg. Precision: 0.688173
+Avg. F1-Score: 0.661892
+Avg. Sensitivity: 0.640428
+Avg. Specificity: 0.834692
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.54      0.46      0.49      1048
+
+   micro avg       0.54      0.46      0.49      1048
+   macro avg       0.54      0.46      0.49      1048
+weighted avg       0.54      0.46      0.49      1048
+
+Precision given by SeqEval: 53.50%
+Recall given by SeqEval: 45.90%
+F1-Score given by SeqEval: 49.41%
+Accuracy given by SeqEval: 86.25%
+Test GS91 Keyword Marking:
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 91/91 [00:00<00:00, 152.94it/s]
+Metrics on Test GS91 DS:
+Confusion Matrix:
+ [[ 1278.   103.  1005.]
+ [  107.   427.   279.]
+ [  542.   222. 15520.]]
+--------------------------------------------------
+Label: B-KP
+TP:1278.0 FN:1108.0 FP:649.0 TN:16448.0
+--------------------------------------------------
+    Accuracy:   0.909819
+    Misclassification:  0.090181
+    Precision:  0.663207
+    Sensitivity/Recall: 0.535624
+    Specificity:        0.962040
+    F1 Score:   0.592627
+--------------------------------------------------
+Label: I-KP
+TP:427.0 FN:386.0 FP:325.0 TN:18345.0
+--------------------------------------------------
+    Accuracy:   0.963507
+    Misclassification:  0.036493
+    Precision:  0.567819
+    Sensitivity/Recall: 0.525215
+    Specificity:        0.982592
+    F1 Score:   0.545687
+--------------------------------------------------
+Label: O
+TP:15520.0 FN:764.0 FP:1284.0 TN:1915.0
+--------------------------------------------------
+    Accuracy:   0.894883
+    Misclassification:  0.105117
+    Precision:  0.923590
+    Sensitivity/Recall: 0.953083
+    Specificity:        0.598625
+    F1 Score:   0.938104
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Avg. Accuracy: 0.92274
+Avg. Precision: 0.718205
+Avg. F1-Score: 0.692139
+Avg. Sensitivity: 0.671308
+Avg. Specificity: 0.847752
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SeqEval Metrics:
+              precision    recall  f1-score   support
+
+          KP       0.59      0.48      0.53      2386
+
+   micro avg       0.59      0.48      0.53      2386
+   macro avg       0.59      0.48      0.53      2386
+weighted avg       0.59      0.48      0.53      2386
+
+Precision given by SeqEval: 59.01%
+Recall given by SeqEval: 48.16%
+F1-Score given by SeqEval: 53.03%
+Accuracy given by SeqEval: 88.41%
+(pytorch) [rgoli@node0026 NLP_KPIdentify]$

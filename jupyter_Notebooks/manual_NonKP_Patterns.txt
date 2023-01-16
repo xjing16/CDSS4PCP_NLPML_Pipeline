@@ -1,0 +1,125 @@
+11418542
+blood transfusion
+
+11604796
+hypertension
+
+12087117
+nephrology departments
+Java platform
+Tetrasys company
+Arden Syntax
+urology
+
+14664046
+Technical University of Munich
+gastroenterologists
+
+18779083
+hemodialysis
+
+19448882
+radical prostatectomy
+
+20501347
+diabetes-related application
+heart disease
+diabetes
+
+20841799
+Hospital Italiano de Buenos Aires
+SEBASTIAN
+
+22019377
+antibiotic-microorganism
+antimicrobial
+antibiotic
+
+23232759
+MET3-AE
+hospital ED
+
+23523876
+pneumonia
+Salt Lake City
+
+23828174
+Regenstrief Institute
+Partners HealthCare System
+New Jersey
+
+24730353
+glycemic management
+glycemic control
+hypoglycemia
+diabetic
+surgery
+
+25109270
+Ministry of Health of China
+
+26133480
+gastric cancer
+therapeutic
+
+26474836
+type 2 diabetes mellitus
+
+26539547
+gastroesophageal reflux disease
+shortness of breath
+abdominal pain
+TRANSFoRm
+diabetes
+
+26590980
+chronic kidney disease
+Z3 solver
+
+26806717
+blunt head trauma
+brain injury
+
+27301749
+genotyping
+
+28676255
+type 2 diabetic
+
+29076113
+Chronic Heart Failure
+Atrial Fibrillation
+
+29169646
+Thoracentesis procedure
+Anaesthesia
+
+29433958
+antibiotic prescription
+infectious disease
+antibiotic therapy
+bacteria
+
+31077222
+https://bioportal.bioontology.org/ontologies/FASTO
+National Center for Biomedical Ontology BioPortal
+type 1 diabetes mellitus
+insulin regimens
+
+31438026
+Spain
+Andalusian Health Public Service
+
+============
+Conclusion:
+============
+Drugs
+Diseases
+Institute Names
+Places/Country
+URL
+
+============
+True Negatives
+============
+Some Acronyms
